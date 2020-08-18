@@ -1,0 +1,12 @@
+main: studio.yuhutils.Main
+name: yuhutils
+version: 1.0
+author: FracturX
+
+commands:
+  sharecoords:
+    description: Shares the player's current coordinates with the user of your choice.
+    usage: /sharecoords <playerName>
+  requestcoords:
+    description: Request the coordinates of another online player of your choice.
+    usage: /requestcoords <playerName>
