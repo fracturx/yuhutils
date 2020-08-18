@@ -24,7 +24,7 @@ class RequestCoords(private var audience: BukkitAudiences) : TabExecutor {
                     val message = TextComponent.builder().content(sender.name).color(NamedTextColor.DARK_PURPLE)
                             .append(TextComponent.builder(" is requesting your coordinates. Would you like to share your coords with this player?").color(NamedTextColor.GREEN).build())
                             .decoration(TextDecoration.UNDERLINED, true)
-                            .clickEvent(ClickEvent.of(ClickEvent.Action.RUN_COMMAND, "/sharecoords"))
+                            .clickEvent(ClickEvent.of(ClickEvent.Action.RUN_COMMAND, "/sharecoords ${target.name}"))
                             .hoverEvent(HoverEvent.showText(TextComponent.builder("Are you sure you want to share your coordinates with this player?").color(NamedTextColor.DARK_RED).build()))
                             .build()
                     audience.player(target).sendMessage(message)
