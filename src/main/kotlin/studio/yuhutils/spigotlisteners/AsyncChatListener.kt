@@ -34,7 +34,7 @@ class AsyncChatListener(private var plugin: Plugin, private var jda: JDA) : List
     }
 
     private fun sendDiscordMessage(author: String, message: String) {
-        val mcChannel = jda.getTextChannelById("705600723089621073")!!
+        val mcChannel = jda.getTextChannelById("737075555085582437")!!
         val embed = EmbedBuilder()
         embed.setTitle(author)
         embed.setColor(Color(0x03FCCF))

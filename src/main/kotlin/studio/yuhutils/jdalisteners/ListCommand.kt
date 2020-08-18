@@ -14,22 +14,29 @@ class ListCommand() : ListenerAdapter() {
             if (e.message.contentRaw.equals("list", ignoreCase = true)) {
                 val numPlayers = Bukkit.getServer().onlinePlayers.size
                 val playerList = mutableListOf<String>()
-                if (numPlayers == 0) {
+                Bukkit.getServer().onlinePlayers.forEach { p: Player ->
+                    if (!isVanished(p)) playerList.add(p.name)
+                }
+                if (playerList.size == 0 || numPlayers == 0) {
                     e.channel.sendMessage("No players currently online.").queue()
                     return
                 }
-                Bukkit.getServer().onlinePlayers.forEach { p: Player ->
-                    playerList.add(p.name)
-                }
-                val descriptionList = java.lang.String.join("\n", playerList)
+                val descriptionList = playerList.joinToString("\n")
                 val embedInfo = EmbedBuilder()
                         .setTitle("Player Info")
-                        .addField("Number of Online Players: ", numPlayers.toString(), true)
+                        .addField("Number of Online Players: ", playerList.size.toString(), true)
                         .setDescription(descriptionList)
                 e.channel.sendMessage(embedInfo.build()).queue()
                 return
             }
         }
+    }
+
+    private fun isVanished(player: Player): Boolean {
+        for (meta in player.getMetadata("vanished")) {
+            if (meta.asBoolean()) return true
+        }
+        return false
     }
 
 }

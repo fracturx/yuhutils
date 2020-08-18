@@ -1,5 +1,6 @@
 package studio.yuhutils.servercommands
 
+import net.kyori.adventure.platform.bukkit.BukkitAudiences
 import org.bukkit.Bukkit
 import org.bukkit.command.Command
 import org.bukkit.command.CommandSender
@@ -11,22 +12,22 @@ import net.kyori.adventure.text.event.HoverEvent
 import net.kyori.adventure.text.format.NamedTextColor
 import net.kyori.adventure.text.format.TextDecoration
 import net.kyori.adventure.text.serializer.gson.GsonComponentSerializer
+import net.md_5.bungee.api.chat.BaseComponent
 
 
-class RequestCoords : TabExecutor {
+class RequestCoords(private var audience: BukkitAudiences) : TabExecutor {
     override fun onCommand(sender: CommandSender, cmd: Command, label: String, args: Array<String>): Boolean {
         if (sender is Player) {
             if (args.isNotEmpty()) {
                 val target = Bukkit.getServer().getPlayer(args[0])
                 if (target != null) {
-                    val newMessage = TextComponent.builder().content(sender.name).color(NamedTextColor.DARK_PURPLE)
+                    val message = TextComponent.builder().content(sender.name).color(NamedTextColor.DARK_PURPLE)
                             .append(TextComponent.builder(" is requesting your coordinates. Would you like to share your coords with this player?").color(NamedTextColor.GREEN).build())
                             .decoration(TextDecoration.UNDERLINED, true)
                             .clickEvent(ClickEvent.of(ClickEvent.Action.RUN_COMMAND, "/sharecoords"))
                             .hoverEvent(HoverEvent.showText(TextComponent.builder("Are you sure you want to share your coordinates with this player?").color(NamedTextColor.DARK_RED).build()))
                             .build()
-                    val messageJSON = GsonComponentSerializer.gson().serialize(newMessage)
-                    target.sendRawMessage(messageJSON)
+                    audience.player(target).sendMessage(message)
                 }
             } else {
                 sender.sendMessage("No player specified to send the data to.")
