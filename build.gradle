@@ -28,11 +28,12 @@ repositories {
 }
 
 dependencies {
-    shadow 'net.dv8tion:JDA:4.1.1_101'
-    shadow 'org.jetbrains.kotlin:kotlin-stdlib-jdk8'
+    implementation 'net.dv8tion:JDA:4.1.1_101'
+    implementation 'org.jetbrains.kotlin:kotlin-stdlib-jdk8'
     implementation 'io.github.cdimascio:java-dotenv:5.2.1'
     compileOnly 'com.destroystokyo.paper:paper-api:1.16.1-R0.1-SNAPSHOT'
-    shadow 'net.kyori:adventure-api:4.0.0-SNAPSHOT'
+    implementation 'net.kyori:adventure-api:4.0.0-SNAPSHOT'
+    implementation 'net.kyori:adventure-text-serializer-gson:4.0.0-SNAPSHOT'
 }
 
 shadowJar {
