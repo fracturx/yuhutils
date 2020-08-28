@@ -1,4 +1,4 @@
-package studio.yuhutils.servercommands
+package studio.fractures.yuhutils.servercommands
 
 import org.bukkit.Bukkit
 import org.bukkit.command.Command

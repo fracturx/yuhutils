@@ -1,0 +1,14 @@
+<component name="libraryTable">
+  <library name="net.minecraft.server">
+    <CLASSES />
+    <JAVADOC />
+    <SOURCES>
+      <root url="file://$USER_HOME$/Documents/Paper/work/Minecraft/1.16.1/libraries/com.mojang/authlib" />
+      <root url="file://$USER_HOME$/Documents/Paper/work/Minecraft/1.16.1/libraries/com.mojang/brigadier" />
+      <root url="file://$USER_HOME$/Documents/Paper/work/Minecraft/1.16.1/libraries/com.mojang/datafixerupper" />
+      <root url="file://$USER_HOME$/Documents/Paper/work/Minecraft/1.16.1/src" />
+      <root url="file://$USER_HOME$/Documents/Paper/work/Minecraft/1.16.1" />
+    </SOURCES>
+    <jarDirectory url="file://$USER_HOME$/Documents/Paper/work/Minecraft/1.16.1" recursive="false" type="SOURCES" />
+  </library>
+</component>

@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="1.16.1-mapped">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/Documents/Paper/work/Minecraft/1.16.1/1.16.1-mapped.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/Documents/Paper/work/Minecraft/1.16.1/1.16.1-mapped.jar!/" />
+      <root url="file://$USER_HOME$/Documents/Paper/work/Minecraft/1.16.1/src" />
+    </SOURCES>
+  </library>
+</component>

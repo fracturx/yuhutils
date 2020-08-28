@@ -1,4 +1,4 @@
-package studio.yuhutils.spigotlisteners
+package studio.fractures.yuhutils.spigotlisteners
 
 import net.dv8tion.jda.api.EmbedBuilder
 import net.dv8tion.jda.api.JDA
@@ -22,7 +22,7 @@ class AsyncChatListener(private var plugin: Plugin, private var jda: JDA) : List
     }
 
     override fun onGuildMessageReceived(e: GuildMessageReceivedEvent) {
-        if (e.author.isBot) return;
+        if (e.author.isBot) return
         if (e.channel.name == "minecraft") {
             val author = e.author.name + "#" + e.author.discriminator + ": "
             sendServerMessage(author, e.message.contentRaw)
@@ -43,7 +43,7 @@ class AsyncChatListener(private var plugin: Plugin, private var jda: JDA) : List
     }
 
     init {
-        Bukkit.getPluginManager().registerEvents(this, plugin)
+        Bukkit.getPluginManager().registerEvents(this, this.plugin)
     }
 
 }

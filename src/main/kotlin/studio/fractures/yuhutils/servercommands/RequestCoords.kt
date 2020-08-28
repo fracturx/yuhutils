@@ -1,21 +1,20 @@
-package studio.yuhutils.servercommands
+package studio.fractures.yuhutils.servercommands
 
 import net.kyori.adventure.platform.bukkit.BukkitAudiences
-import org.bukkit.Bukkit
-import org.bukkit.command.Command
-import org.bukkit.command.CommandSender
-import org.bukkit.command.TabExecutor
-import org.bukkit.entity.Player
 import net.kyori.adventure.text.TextComponent
 import net.kyori.adventure.text.event.ClickEvent
 import net.kyori.adventure.text.event.HoverEvent
 import net.kyori.adventure.text.format.NamedTextColor
 import net.kyori.adventure.text.format.TextDecoration
-import net.kyori.adventure.text.serializer.gson.GsonComponentSerializer
-import net.md_5.bungee.api.chat.BaseComponent
+import org.bukkit.Bukkit
+import org.bukkit.command.Command
+import org.bukkit.command.CommandSender
+import org.bukkit.command.TabExecutor
+import org.bukkit.entity.Player
 
 
 class RequestCoords(private var audience: BukkitAudiences) : TabExecutor {
+
     override fun onCommand(sender: CommandSender, cmd: Command, label: String, args: Array<String>): Boolean {
         if (sender is Player) {
             if (args.isNotEmpty()) {
@@ -27,6 +26,7 @@ class RequestCoords(private var audience: BukkitAudiences) : TabExecutor {
                             .clickEvent(ClickEvent.of(ClickEvent.Action.RUN_COMMAND, "/sharecoords ${target.name}"))
                             .hoverEvent(HoverEvent.showText(TextComponent.builder("Are you sure you want to share your coordinates with this player?").color(NamedTextColor.DARK_RED).build()))
                             .build()
+
                     audience.player(target).sendMessage(message)
                 }
             } else {

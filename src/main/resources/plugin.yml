@@ -1,7 +1,8 @@
-main: studio.yuhutils.Main
+main: studio.fractures.yuhutils.Main
 name: yuhutils
-version: 1.0
+version: 3.0
 author: FracturX
+api-version: 1.16
 
 commands:
   sharecoords:
@@ -10,3 +11,10 @@ commands:
   requestcoords:
     description: Request the coordinates of another online player of your choice.
     usage: /requestcoords <playerName>
+  savecoords:
+    description: Save coordinates with a unique name along with a specified dimension and coordinates. You can just
+      provide a name and "@s" to save your current coordinates with no extra args.
+    usage: /savecoords <unique-name> <@s (use @s if you want to save your current coords) | dimension> <x?> <y?> <z?>
+  viewcoords:
+    description: View all saved coordinates saved with the savecoords command.
+    usage: /viewcoords

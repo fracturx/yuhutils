@@ -1,10 +1,10 @@
-package studio.yuhutils
+package studio.fractures.yuhutils
 
 import net.dv8tion.jda.api.AccountType
 import net.dv8tion.jda.api.JDA
 import net.dv8tion.jda.api.JDABuilder
-import studio.yuhutils.jdalisteners.ListCommand
-import studio.yuhutils.spigotlisteners.AsyncChatListener
+import studio.fractures.yuhutils.jdalisteners.ListCommand
+import studio.fractures.yuhutils.spigotlisteners.AsyncChatListener
 import io.github.cdimascio.dotenv.dotenv
 
 
@@ -18,7 +18,7 @@ class Bot(pluginInstance: Main) {
         jda = JDABuilder(AccountType.BOT)
                 .setToken(token)
                 .build()
-        jda.awaitReady();
+        jda.awaitReady()
         jda.addEventListener(ListCommand())
         jda.addEventListener(AsyncChatListener(plugin, jda))
     }
