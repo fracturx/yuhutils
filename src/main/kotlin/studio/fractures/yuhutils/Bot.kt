@@ -6,6 +6,8 @@ import net.dv8tion.jda.api.JDABuilder
 import studio.fractures.yuhutils.jdalisteners.ListCommand
 import studio.fractures.yuhutils.spigotlisteners.AsyncChatListener
 import io.github.cdimascio.dotenv.dotenv
+import studio.fractures.yuhutils.spigotlisteners.PlayerDeathListener
+import studio.fractures.yuhutils.spigotlisteners.PlayerJoinListener
 
 
 class Bot(pluginInstance: Main) {
@@ -21,5 +23,7 @@ class Bot(pluginInstance: Main) {
         jda.awaitReady()
         jda.addEventListener(ListCommand())
         jda.addEventListener(AsyncChatListener(plugin, jda))
+        PlayerJoinListener(jda, plugin)
+        PlayerDeathListener(jda, plugin)
     }
 }

@@ -1,8 +1,11 @@
 main: studio.fractures.yuhutils.Main
 name: yuhutils
-version: 3.0
+version: 3.1
 author: FracturX
 api-version: 1.16
+
+
+softdepend: [SuperVanish, PremiumVanish]
 
 commands:
   sharecoords:

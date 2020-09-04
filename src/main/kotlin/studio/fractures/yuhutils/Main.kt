@@ -1,6 +1,7 @@
 package studio.fractures.yuhutils
 
 import net.kyori.adventure.platform.bukkit.BukkitAudiences
+import org.bukkit.Bukkit
 import org.bukkit.plugin.java.JavaPlugin
 import studio.fractures.yuhutils.servercommands.RequestCoords
 import studio.fractures.yuhutils.servercommands.SaveCoords
