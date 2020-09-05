@@ -35,6 +35,6 @@ class Bot(pluginInstance: Main) {
         PlayerDeathListener(jda, plugin)
         PlayerAdvancementListener(jda, plugin)
 
-        DiscordMessageHandler.sendEmbedWithBody(jda, "yuhutils v" + pluginInstance.description.version + " is Enabled!", "New In This Version:\n TODO")
+        DiscordMessageHandler.sendEmbedWithBody(jda, "yuhutils v" + pluginInstance.description.version + " is Enabled!", "New In This Version:\n Fixed a bug where discord messages weren't formatted properly")
     }
 }

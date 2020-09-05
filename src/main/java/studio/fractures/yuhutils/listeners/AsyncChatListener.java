@@ -39,7 +39,7 @@ public class AsyncChatListener extends ListenerAdapter implements Listener {
     }
 
     private void sendServerMessage(String author, String message) {
-        Bukkit.getServer().broadcastMessage("${ChatColor.GOLD}${author}${ChatColor.AQUA}${message}");
+        Bukkit.getServer().broadcastMessage(ChatColor.GOLD + author + ChatColor.AQUA + message);
     }
 
 }
