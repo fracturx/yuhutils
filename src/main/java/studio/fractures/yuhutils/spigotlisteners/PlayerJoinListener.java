@@ -1,16 +1,14 @@
 package studio.fractures.yuhutils.spigotlisteners;
 
+import de.myzelyam.api.vanish.PlayerHideEvent;
 import de.myzelyam.api.vanish.PlayerShowEvent;
 import de.myzelyam.api.vanish.VanishAPI;
-import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.JDA;
-import net.dv8tion.jda.api.entities.TextChannel;
 import org.bukkit.Bukkit;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
-import de.myzelyam.api.vanish.PlayerHideEvent;
 import org.bukkit.plugin.java.JavaPlugin;
 import studio.fractures.yuhutils.Main;
 import studio.fractures.yuhutils.util.DiscordMessageHandler;

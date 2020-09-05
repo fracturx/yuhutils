@@ -25,4 +25,25 @@ public class DiscordMessageHandler {
         EmbedBuilder embed = new EmbedBuilder().setTitle(titleMessage).setColor(color);
         mcChannel.sendMessage(embed.build()).queue();
     }
+
+    public static void sendEmbedWithBody(JDA jda, String titleMessage, String body) {
+        TextChannel mcChannel = jda.getTextChannelById("737075555085582437");
+        if (mcChannel == null) {
+            Bukkit.getLogger().info("Minecraft Channel Not Found!");
+            return;
+        }
+        EmbedBuilder embed = new EmbedBuilder().setTitle(titleMessage).setColor(0x00A2FF).setDescription(body);
+        mcChannel.sendMessage(embed.build()).queue();
+    }
+
+    public static void sendEmbedWithBody(JDA jda, String titleMessage, String body, int color) {
+        TextChannel mcChannel = jda.getTextChannelById("737075555085582437");
+        if (mcChannel == null) {
+            Bukkit.getLogger().info("Minecraft Channel Not Found!");
+            return;
+        }
+        EmbedBuilder embed = new EmbedBuilder().setTitle(titleMessage).setColor(color).setDescription(body);
+        mcChannel.sendMessage(embed.build()).queue();
+    }
+
 }

@@ -7,6 +7,8 @@ import studio.fractures.yuhutils.servercommands.RequestCoords
 import studio.fractures.yuhutils.servercommands.SaveCoords
 import studio.fractures.yuhutils.servercommands.ShareCoords
 import studio.fractures.yuhutils.servercommands.ViewCoords
+import studio.fractures.yuhutils.spigotlisteners.PlayerAdvancementListener
+import studio.fractures.yuhutils.spigotlisteners.PlayerJoinListener
 
 class Main : JavaPlugin() {
 
@@ -26,7 +28,4 @@ class Main : JavaPlugin() {
         Bot(this)
     }
 
-    override fun onDisable() {
-        super.onDisable()
-    }
 }
