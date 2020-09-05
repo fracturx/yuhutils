@@ -1,6 +1,6 @@
 main: studio.fractures.yuhutils.Main
 name: yuhutils
-version: '3.3.2'
+version: '3.3.4'
 author: FracturX
 api-version: '1.16'
 

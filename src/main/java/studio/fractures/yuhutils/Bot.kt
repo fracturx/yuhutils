@@ -9,6 +9,7 @@ import io.github.cdimascio.dotenv.dotenv
 import studio.fractures.yuhutils.listeners.PlayerAdvancementListener
 import studio.fractures.yuhutils.listeners.PlayerDeathListener
 import studio.fractures.yuhutils.listeners.PlayerJoinListener
+import studio.fractures.yuhutils.util.DiscordMessageHandler
 
 
 class Bot(pluginInstance: Main) {
@@ -33,5 +34,7 @@ class Bot(pluginInstance: Main) {
         PlayerJoinListener(jda, plugin)
         PlayerDeathListener(jda, plugin)
         PlayerAdvancementListener(jda, plugin)
+
+        DiscordMessageHandler.sendEmbedWithBody(jda, "yuhutils v" + pluginInstance.description.version + " is Enabled!", "New In This Version:\n TODO")
     }
 }
