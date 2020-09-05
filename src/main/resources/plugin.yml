@@ -1,15 +1,15 @@
 main: studio.fractures.yuhutils.Main
 name: yuhutils
-version: 3.3.2
+version: '3.3.2'
 author: FracturX
-api-version: 1.16
+api-version: '1.16'
 
 
 softdepend: [SuperVanish, PremiumVanish]
 
 commands:
   sharecoords:
-    description: Shares the player's current coordinates with the user of your choice.
+    description: Shares your current coordinates with the user of your choice.
     usage: /sharecoords <playerName>
   requestcoords:
     description: Request the coordinates of another online player of your choice.

@@ -1,4 +1,4 @@
-package studio.fractures.yuhutils.spigotlisteners;
+package studio.fractures.yuhutils.listeners;
 
 import de.myzelyam.api.vanish.PlayerHideEvent;
 import de.myzelyam.api.vanish.PlayerShowEvent;

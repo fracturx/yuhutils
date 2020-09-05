@@ -1,4 +1,4 @@
-package studio.fractures.yuhutils.spigotlisteners;
+package studio.fractures.yuhutils.listeners;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;

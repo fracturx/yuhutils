@@ -1,8 +1,9 @@
-package studio.fractures.yuhutils;
+package studio.fractures.yuhutils.util;
 
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.plugin.java.JavaPlugin;
+import studio.fractures.yuhutils.Main;
 
 import java.io.File;
 import java.io.IOException;
@@ -12,7 +13,7 @@ import java.util.logging.Level;
 
 public class DataManager {
 
-    private JavaPlugin plugin;
+    private final JavaPlugin plugin;
     private FileConfiguration dataConfig;
     private File configFile;
 
@@ -50,7 +51,7 @@ public class DataManager {
         }
     }
 
-    public void saveDefaultDataConfig() {
+    private void saveDefaultDataConfig() {
         if (this.configFile == null) {
             this.configFile = new File(this.plugin.getDataFolder(), "playerdata.yml");
         }

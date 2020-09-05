@@ -1,4 +1,4 @@
-package studio.fractures.yuhutils.jdalisteners
+package studio.fractures.yuhutils.discordcommands
 
 import net.dv8tion.jda.api.EmbedBuilder
 import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent

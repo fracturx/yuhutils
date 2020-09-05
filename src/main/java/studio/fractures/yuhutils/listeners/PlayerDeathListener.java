@@ -1,4 +1,4 @@
-package studio.fractures.yuhutils.spigotlisteners;
+package studio.fractures.yuhutils.listeners;
 
 import net.dv8tion.jda.api.JDA;
 import org.bukkit.Bukkit;
