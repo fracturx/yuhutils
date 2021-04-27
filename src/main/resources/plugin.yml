@@ -1,8 +1,9 @@
 main: studio.fractures.yuhutils.Main
 name: yuhutils
-version: '3.3.6'
-author: FracturX
+version: '3.4.0'
+author: frykher
 api-version: '1.16'
+description: yuhutils adds discord integration and coordinates-related commands as utility
 
 
 softdepend: [SuperVanish, PremiumVanish]

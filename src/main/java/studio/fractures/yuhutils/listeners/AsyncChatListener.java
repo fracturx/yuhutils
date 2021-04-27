@@ -1,8 +1,6 @@
 package studio.fractures.yuhutils.listeners;
 
-import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.JDA;
-import net.dv8tion.jda.api.entities.TextChannel;
 import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
 import org.bukkit.Bukkit;
@@ -11,7 +9,7 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.AsyncPlayerChatEvent;
 import org.bukkit.plugin.Plugin;
-import studio.fractures.yuhutils.util.DiscordMessageHandler;
+import studio.fractures.yuhutils.util.DiscordMessageHelper;
 
 
 public class AsyncChatListener extends ListenerAdapter implements Listener {
@@ -27,7 +25,7 @@ public class AsyncChatListener extends ListenerAdapter implements Listener {
     public void onAsyncPlayerChatEvent(AsyncPlayerChatEvent e) {
         String message = e.getMessage();
         String author = e.getPlayer().getDisplayName();
-        DiscordMessageHandler.sendEmbedWithBody(jda, author, message);
+        DiscordMessageHelper.sendEmbedWithBody(jda, author, message);
     }
 
     public void onGuildMessageReceived(GuildMessageReceivedEvent e) {

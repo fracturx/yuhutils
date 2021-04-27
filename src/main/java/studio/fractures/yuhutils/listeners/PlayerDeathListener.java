@@ -7,7 +7,7 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.entity.PlayerDeathEvent;
 import org.bukkit.plugin.java.JavaPlugin;
 import studio.fractures.yuhutils.Main;
-import studio.fractures.yuhutils.util.DiscordMessageHandler;
+import studio.fractures.yuhutils.util.DiscordMessageHelper;
 
 public class PlayerDeathListener implements Listener {
 
@@ -22,6 +22,6 @@ public class PlayerDeathListener implements Listener {
     @EventHandler
     public void onPlayerDeathEvent(PlayerDeathEvent e) {
         String deathMessage = e.getDeathMessage();
-        DiscordMessageHandler.sendSimpleEmbed(this.jda, deathMessage);
+        DiscordMessageHelper.sendSimpleEmbed(this.jda, deathMessage);
     }
 }

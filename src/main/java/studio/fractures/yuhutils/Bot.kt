@@ -1,28 +1,25 @@
 package studio.fractures.yuhutils
 
-import net.dv8tion.jda.api.AccountType
+import io.github.cdimascio.dotenv.Dotenv
 import net.dv8tion.jda.api.JDA
 import net.dv8tion.jda.api.JDABuilder
+import net.dv8tion.jda.api.requests.GatewayIntent
+import org.bukkit.Bukkit
 import studio.fractures.yuhutils.discordcommands.ListCommand
-import studio.fractures.yuhutils.listeners.AsyncChatListener
-import io.github.cdimascio.dotenv.dotenv
-import studio.fractures.yuhutils.listeners.PlayerAdvancementListener
-import studio.fractures.yuhutils.listeners.PlayerDeathListener
-import studio.fractures.yuhutils.listeners.PlayerJoinListener
-import studio.fractures.yuhutils.util.DiscordMessageHandler
+import studio.fractures.yuhutils.listeners.*
+import studio.fractures.yuhutils.util.DiscordMessageHelper
 
 
 class Bot(pluginInstance: Main) {
     private var jda: JDA
     private val plugin: Main = pluginInstance
-    private val dotenv = dotenv()
-    private val token: String? = dotenv["BOT_TOKEN"]
+    private val dotenv: Dotenv = Dotenv.load()
 
     init {
-        jda = JDABuilder(AccountType.BOT)
-                .setToken(token)
-                .build()
-        jda.awaitReady()
+        dotenv.entries().forEach {e -> System.setProperty(e.key, e.value) }
+        val token: String? = System.getProperty("BOT_TOKEN")
+        jda = JDABuilder.createLight(token, GatewayIntent.GUILD_MESSAGES).build().awaitReady();
+
 
         // commands on discord
         jda.addEventListener(ListCommand())
@@ -35,6 +32,10 @@ class Bot(pluginInstance: Main) {
         PlayerDeathListener(jda, plugin)
         PlayerAdvancementListener(jda, plugin)
 
-        DiscordMessageHandler.sendEmbedWithBody(jda, "yuhutils v" + pluginInstance.description.version + " is Enabled!", "New In This Version:\n Fixed a bug where the Hot Tourist Destination appeared as null")
+        if (Bukkit.getPluginManager().isPluginEnabled("SuperVanish") || Bukkit.getPluginManager().isPluginEnabled("PremiumVanish")) {
+            PlayerHideListener(jda, plugin)
+        }
+
+        DiscordMessageHelper.sendEmbedWithBody(jda, "yuhutils v" + pluginInstance.description.version + " is Enabled!", pluginInstance.description.description)
     }
 }

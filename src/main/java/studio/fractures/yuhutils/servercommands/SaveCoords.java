@@ -38,6 +38,7 @@ public class SaveCoords implements TabExecutor {
                     Location coordinates = ((Player) sender).getLocation();
                     this.data.getDataConfig().set("players." + sender.getName() + ".coordinates." + identifier, coordinates.getBlock().getLocation());
                     this.data.saveDataConfig();
+                    this.sendSuccessMessage((Player) sender);
                     return true;
                 } else if (args.length == 5) {
                     for (int i = 2; i < 5; i++) {
@@ -58,6 +59,7 @@ public class SaveCoords implements TabExecutor {
                     Location coordinates = new Location(Bukkit.getServer().getWorld(args[1]), Double.parseDouble(args[2]), Double.parseDouble(args[3]), Double.parseDouble(args[4]));
                     this.data.getDataConfig().set("players." + sender.getName() + ".coordinates." + identifier, coordinates);
                     this.data.saveDataConfig();
+                    this.sendSuccessMessage((Player) sender);
                     return true;
                 }
             }
@@ -79,5 +81,9 @@ public class SaveCoords implements TabExecutor {
                 return Collections.singletonList(Double.toString(((Player) sender).getLocation().getZ()));
         }
         return null;
+    }
+
+    public void sendSuccessMessage(Player target) {
+        target.sendMessage(ChatColor.GOLD + "Coordinates successfully saved.");
     }
 }

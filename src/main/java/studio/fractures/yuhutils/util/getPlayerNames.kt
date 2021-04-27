@@ -1,8 +1,6 @@
 package studio.fractures.yuhutils.util
 
 import org.bukkit.Bukkit
-import org.bukkit.command.Command
-import org.bukkit.command.CommandSender
 import java.util.ArrayList
 
 fun getPlayerNames(): List<String>? {

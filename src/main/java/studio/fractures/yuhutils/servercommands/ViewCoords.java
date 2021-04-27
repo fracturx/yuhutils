@@ -1,6 +1,7 @@
 package studio.fractures.yuhutils.servercommands;
 
-import net.kyori.adventure.platform.bukkit.BukkitAudiences;
+import net.kyori.adventure.audience.Audience;
+import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.TextComponent;
 import net.kyori.adventure.text.format.NamedTextColor;
 import org.bukkit.ChatColor;
@@ -19,11 +20,9 @@ import java.util.List;
 public class ViewCoords implements TabExecutor {
 
     private final DataManager data;
-    private final BukkitAudiences audience;
 
-    public ViewCoords(BukkitAudiences audience, DataManager dataManager) {
+    public ViewCoords(DataManager dataManager) {
         this.data = dataManager;
-        this.audience = audience;
     }
 
     @Override
@@ -32,13 +31,13 @@ public class ViewCoords implements TabExecutor {
             if (this.data.getDataConfig().contains("players." + sender.getName() + ".coordinates")) {
                 ConfigurationSection playerCoordinates = this.data.getDataConfig().getConfigurationSection("players." + sender.getName() + ".coordinates");
                 assert playerCoordinates != null;
-                TextComponent.Builder message = TextComponent.builder().content("Coordinates\n").color(NamedTextColor.LIGHT_PURPLE);
+                TextComponent.Builder message = Component.text().content("Coordinates\n").color(NamedTextColor.LIGHT_PURPLE);
                 for (String key: playerCoordinates.getKeys(true)) {
                     Location coordinates = this.data.getDataConfig().getLocation("players." + sender.getName() + ".coordinates." + key);
                     assert coordinates != null;
-                    message.append(TextComponent.builder(key + " - " + coordinates.getX() + ", " + coordinates.getY() + ", " + coordinates.getZ() + "\n").color(NamedTextColor.GREEN).build());
+                    message.append(Component.text(key + " - " + coordinates.getX() + ", " + coordinates.getY() + ", " + coordinates.getZ() + "\n").color(NamedTextColor.GREEN));
                 }
-                audience.player((Player) sender).sendMessage(message.build());
+                sender.sendMessage(message.build());
                 return true;
             }
             sender.sendMessage(ChatColor.RED + "NO SAVED COORDINATES FOUND!");

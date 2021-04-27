@@ -10,7 +10,7 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerAdvancementDoneEvent;
 import org.bukkit.plugin.java.JavaPlugin;
 import studio.fractures.yuhutils.Main;
-import studio.fractures.yuhutils.util.DiscordMessageHandler;
+import studio.fractures.yuhutils.util.DiscordMessageHelper;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -57,6 +57,6 @@ public class PlayerAdvancementListener implements Listener {
             this.plugin.getLogger().info("Error appeared with the advancement " + e.getAdvancement().getKey().getKey());
         }
         String advancementCompleteMessage = e.getPlayer().getName() + " has made the advancement [" + englishAdvancementTitle + "]";
-        DiscordMessageHandler.sendEmbedWithBody(this.jda, advancementCompleteMessage, englishAdvancementDescription);
+        DiscordMessageHelper.sendEmbedWithBody(this.jda, advancementCompleteMessage, englishAdvancementDescription);
     }
 }
